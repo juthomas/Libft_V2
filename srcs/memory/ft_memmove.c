@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juthomas <juthomas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/07 18:18:27 by juthomas          #+#    #+#             */
-/*   Updated: 2018/10/07 18:18:27 by juthomas         ###   ########.fr       */
+/*   Created: 2018/10/21 23:16:51 by juthomas          #+#    #+#             */
+/*   Updated: 2018/10/21 23:16:51 by juthomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*memmove(void *dst, const void *src, size_t len)
 {
 	void *tmp;
 
-	tmp = b;
-	while (len-- > 0)
-		*(int*)b++ = c;
-	return ((void*)tmp);
+	if (!(tmp = (void*)malloc(sizeof(void) * (len + 1))))
+		return (NULL);
+	tmp = ft_memcpy(tmp, src, len);
+	dst = ft_memcpy(dst, tmp, len);
+	free(tmp);
+	return (dst);
 }

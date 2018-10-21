@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juthomas <juthomas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/07 18:18:27 by juthomas          #+#    #+#             */
-/*   Updated: 2018/10/07 18:18:27 by juthomas         ###   ########.fr       */
+/*   Created: 2018/10/21 23:34:03 by juthomas          #+#    #+#             */
+/*   Updated: 2018/10/21 23:34:03 by juthomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memalloc(size_t size)
 {
-	void *tmp;
+	void	*ret;
 
-	tmp = b;
-	while (len-- > 0)
-		*(int*)b++ = c;
-	return ((void*)tmp);
+	if (!(ret = (void*)malloc(sizeof(void) * size)))
+		return (NULL);
+	ft_bzero(ret, size);
+	return (ret);
 }
