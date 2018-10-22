@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juthomas <juthomas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/21 23:34:03 by juthomas          #+#    #+#             */
-/*   Updated: 2018/10/21 23:34:03 by juthomas         ###   ########.fr       */
+/*   Created: 2018/10/22 22:53:49 by juthomas          #+#    #+#             */
+/*   Updated: 2018/10/22 22:53:49 by juthomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strdup(const char *s1)
 {
-	void	*ret;
+	char *new;
 
-	if (!(ret = (void*)malloc(sizeof(void) * size)))
+	if (!(new = ft_stralloc(ft_strlen((const char*)s1))))
 		return (NULL);
-	ft_bzero((void*)ret, (size_t)size);
-	return ((void*)ret);
+	ft_strcpy((char*)new, (const char*)s1);
+	return ((char*)new);
 }

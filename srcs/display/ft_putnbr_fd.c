@@ -6,13 +6,13 @@
 /*   By: juthomas <juthomas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 21:18:48 by juthomas          #+#    #+#             */
-/*   Updated: 2018/07/09 23:57:31 by juthomas         ###   ########.fr       */
+/*   Updated: 2018/10/22 23:10:41 by juthomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-static void		this_part_two(long int l, int fd)
+static void		this_part_two(long l, int fd)
 {
 	if (l < 0)
 	{
@@ -53,7 +53,7 @@ void			ft_putnbr_fd(float nbr, int fd)
 	precision = 10;
 	if (nbr < 0 && nbr != INFINITY && nbr != -INFINITY)
 	{
-		ft_putstr_fd("-", fd);
+		ft_putstr_fd((char*)"-", (int)fd);
 		nbr = -nbr;
 	}
 	l = (long)nbr;
@@ -67,8 +67,8 @@ void			ft_putnbr_fd(float nbr, int fd)
 	}
 	if ((fabs(nbr - l) >= r) && (precision == 0))
 		l = ((l > 0) ? l + 1 : l - 1);
-	this_part_two(l, fd);
+	this_part_two((long)l, (int)fd);
 	nbr = fabs(nbr - l);
 	if (nbr > 0 && precision != 0)
-		this_part_three(&nbr, l, &precision, fd);
+		this_part_three((float*)&nbr, (long)l, (int*)&precision, (int)fd);
 }

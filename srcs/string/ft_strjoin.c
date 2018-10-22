@@ -6,7 +6,7 @@
 /*   By: juthomas <juthomas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 00:12:07 by juthomas          #+#    #+#             */
-/*   Updated: 2018/07/10 01:05:32 by juthomas         ###   ########.fr       */
+/*   Updated: 2018/10/22 23:12:03 by juthomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ char *ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	cpy = ft_strcpy(cpy, s1);
 	cpy = ft_strcat(cpy, s2);
-	return (cpy);
+	return ((char*)cpy);
 }

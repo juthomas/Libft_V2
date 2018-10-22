@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juthomas <juthomas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/21 23:34:03 by juthomas          #+#    #+#             */
-/*   Updated: 2018/10/21 23:34:03 by juthomas         ###   ########.fr       */
+/*   Created: 2018/10/22 22:40:07 by juthomas          #+#    #+#             */
+/*   Updated: 2018/10/22 22:40:07 by juthomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void	*ft_memalloc(size_t size)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	void	*ret;
-
-	if (!(ret = (void*)malloc(sizeof(void) * size)))
-		return (NULL);
-	ft_bzero((void*)ret, (size_t)size);
-	return ((void*)ret);
+	while (n--)
+	{
+		if (*(int*)s++ == c)
+			return ((void*)--s);
+	}
+	return ((void*)NULL);
 }

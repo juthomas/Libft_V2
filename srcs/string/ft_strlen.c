@@ -6,7 +6,7 @@
 /*   By: juthomas <juthomas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 00:08:47 by juthomas          #+#    #+#             */
-/*   Updated: 2018/10/21 23:16:09 by juthomas         ###   ########.fr       */
+/*   Updated: 2018/10/22 23:12:11 by juthomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int		ft_strlen(const char *str)
 	i = 0;
 	while (*str++)
 		i++;
-	return (i);
+	return ((int)i);
 }
