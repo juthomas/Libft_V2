@@ -14,10 +14,15 @@
 
 char	*ft_strcat(char *restrict s1, const char *restrict s2)
 {
+	char *tmp;
+
+	tmp = s1;
 	while (*s1)
 		s1++;
 	while (*s2)
+	{
 		*(s1++) = *(s2++);
+	}
 	*s1 = 0;
-	return ((char*)s1);
+	return ((char*)tmp);
 }
