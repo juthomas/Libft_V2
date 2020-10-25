@@ -123,31 +123,33 @@ OBJ_DIRS = $(DISPLAY_DIR:%=$(OBJ_DIR)/%) \
 ## Rules of Makefile
 
 all: $(NAME)
-	@echo "$(COLOR)Libft\t\t\0033[1;30m[All OK]\0033[1;37m"
+	@echo "$(COLOR)Libft \033[100D\033[40C\0033[1;30m[All OK]\0033[1;37m"
 
 $(OBJ_DIRS):
 	@mkdir -p $@
-	@echo "$(COLOR)Creating    : \0033[0;32m$@\0033[1;37m"
+	@echo "$(COLOR)$@ \033[100D\033[40C\0033[1;32m[Created]\0033[1;37m"
 
 $(SRC):
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(CC) -c $< -o $@
-	@echo "$(COLOR)Compiling : \0033[0;32m$(@:$(OBJ_DIR)/%=%)\0033[1;37m"
+	@echo "$(COLOR)$(@:$(OBJ_DIR)/%=%) \033[100D\033[40C\0033[1;32m[Compiled]\0033[1;37m"
+
+
 
 $(NAME): $(OBJ_DIRS) $(SRC)
 	@$(MAKE) $(OBJ)
-	@echo "$(COLOR)Objects\t\t\0033[0;32m[Created]\0033[1;37m"
+	@echo "$(COLOR)Objects \033[100D\033[40C\0033[1;32m[Created]\0033[1;37m"
 	@ar rcs $@ $(OBJ)
-	@echo "$(COLOR)$(NAME)\t\t\0033[0;32m[Created]\0033[1;37m"
+	@echo "$(COLOR)$(NAME) \033[100D\033[40C\0033[1;32m[Created]\0033[1;37m"
 
 clean:
 	@rm -rf $(OBJ_DIR)
-	@echo "$(COLOR)Objects\t\t\0033[0;31m[Deleted]\0033[1;37m"
+	@echo "$(COLOR)Objects \033[100D\033[40C\0033[1;31m[Deleted]\0033[1;37m"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(COLOR)$(NAME)\t\t\0033[0;31m[Deleted]\0033[1;37m"
+	@echo "$(COLOR)$(NAME) \033[100D\033[40C\0033[1;31m[Deleted]\0033[1;37m"
 
 re: fclean all
 
